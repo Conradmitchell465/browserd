@@ -1,14 +1,18 @@
 import {
+  BrowserWindow as hiddenBrowserWindow,
   DesktopCapturer,
   desktopCapturer as hiddenDesktopCapturer,
   DesktopCapturerSource } from "electron";
 import { parse as hiddenParseSdp, write as hiddenWriteSdp } from "sdp-transform";
 import {
+  createStream,
+  createWindow,
   forceH264Sdp,
   getDesktopSources,
   parsePeers,
   selectCaptureSource } from "..";
 
+const BrowserWindow = hiddenBrowserWindow as jest.Mocked<any>;
 const desktopCapturer = hiddenDesktopCapturer as jest.Mocked<DesktopCapturer>;
 const parseSdp = hiddenParseSdp as jest.Mock;
 const writeSdp = hiddenWriteSdp as jest.Mock;
@@ -31,6 +35,72 @@ const cbify: <TErr, TRes>(err: TErr, res: TRes) => any = (err, res) => {
 describe("index (helpers)", () => {
   beforeEach(() => {
     jest.resetAllMocks();
+  });
+
+  describe("createWindow", () => {
+    beforeAll(() => {
+      BrowserWindow.mockImplementation(() => {
+        console.log("impl");
+        return {
+          loadURL: jest.fn(),
+          on: jest.fn(),
+          once: jest.fn(),
+        };
+      });
+    });
+
+    it("idk", async () => {
+      console.log(BrowserWindow);
+      console.log(new BrowserWindow());
+      await createWindow("google.com");
+    });
+  });
+
+  describe("createStream", () => {
+    let mediaDevicesUnmockedValue: any;
+    beforeAll(() => {
+      // set up our mock
+      mediaDevicesUnmockedValue = navigator.mediaDevices;
+      (navigator as any).mediaDevices = {
+        getUserMedia: jest.fn(),
+      };
+    });
+
+    afterAll(() => {
+      // tear down our mock
+      (navigator as any).mediaDevices = mediaDevicesUnmockedValue;
+    });
+
+    it("should getUserMedia", async () => {
+      const expectedSourceId = "testid";
+      const expectedSource = {
+        id: expectedSourceId,
+      };
+      const expectedMedia = {
+        isMedia: true,
+      };
+
+      const mock = navigator.mediaDevices.getUserMedia as jest.Mock<any>;
+      mock.mockResolvedValueOnce(expectedMedia);
+      const result = await createStream(expectedSource as any);
+
+      expect(result).toEqual(expectedMedia);
+      expect(mock).toHaveBeenCalledTimes(1);
+      expect(mock).toHaveBeenCalledWith({
+        audio: {
+          mandatory: {
+            chromeMediaSource: "system",
+            chromeMediaSourceId: expectedSourceId,
+          },
+        },
+        video: {
+          mandatory: {
+            chromeMediaSource: "desktop",
+            chromeMediaSourceId: expectedSourceId,
+          },
+        },
+      });
+    });
   });
 
   describe("getDesktopSources", () => {
