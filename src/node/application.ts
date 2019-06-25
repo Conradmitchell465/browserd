@@ -24,6 +24,16 @@ interface IApplicationOpts {
   url: string;
 
   /**
+   * The visual window width
+   */
+  width: number;
+
+  /**
+   * The visual window height
+   */
+  height: number;
+
+  /**
    * The capture window name
    */
   captureWindowTitle: string;
@@ -78,14 +88,18 @@ export class Application {
     streamerConfig,
     expHideStreamer,
     winProvider,
+    width,
+    height,
   }: IApplicationOpts) {
     logger.info("Node: creating browser");
 
     await winProvider.createWindow({
       alwaysOnTop: true,
       backgroundColor: "#000",
+      height,
       title: captureWindowTitle,
       url,
+      width,
     });
 
     logger.info("Node: created browser");
