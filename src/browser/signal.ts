@@ -1,13 +1,24 @@
 import * as url from "url";
 import { ISignalPeer, ISignalProvider } from "../base/signal-provider";
 
-interface ISignalOpts {
+/**
+ * Signal constructor options
+ */
+export interface ISignalOpts {
+  /**
+   * The url to poll
+   */
   url: string;
+
+  /**
+   * The interval to poll at
+   */
   pollIntervalMs: number;
 }
 
 /**
  * Http signaling server client
+ * Note: speaks the protocol defined @ https://github.com/bengreenier/webrtc-signal-http
  */
 export class Signal extends ISignalProvider {
   /**
@@ -35,15 +46,8 @@ export class Signal extends ISignalProvider {
     this.longpollPending = false;
   }
 
-  /**
-   * Get the assigned id ({undefined} until after {signIn()})
-   */
   public get id() { return this.backingId; }
 
-  /**
-   * Sign in to the signaler
-   * @param peerName the peer name to register as
-   */
   public signIn(peerName: string) {
     return fetch(url.resolve(this.url,
       `/sign_in?peer_name=${peerName}`))
@@ -67,9 +71,6 @@ export class Signal extends ISignalProvider {
       });
   }
 
-  /**
-   * Sign out of the signaler
-   */
   public signOut() {
     return fetch(url.resolve(this.url, `/sign_out?peer_id=${this.id}`))
       .then((res) => {
@@ -81,11 +82,6 @@ export class Signal extends ISignalProvider {
       });
   }
 
-  /**
-   * Send data to a remote peer
-   * @param data data to send (stringify-ed)
-   * @param peerId remote peer id to send to
-   */
   public send(data: string, peerId: string) {
     return fetch(url.resolve(this.url, `/message?peer_id=${this.id}&to=${peerId}`), {
       body: data,
@@ -98,9 +94,6 @@ export class Signal extends ISignalProvider {
       });
   }
 
-  /**
-   * Cleanup internals and destroy the signal instance
-   */
   public destroy() {
     if (this.id) {
       this.backingId = undefined;
@@ -150,6 +143,10 @@ export class Signal extends ISignalProvider {
       });
   }
 
+  /**
+   * Parses peers from a peer list
+   * @param txt source peers list text
+   */
   private parsePeers(txt: string): ISignalPeer[] {
     return txt.split("\n")
     .filter((p) => typeof p !== "undefined" && p.length > 0)

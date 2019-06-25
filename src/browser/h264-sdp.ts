@@ -1,50 +1,16 @@
 import { parse as parseSdp, write as writeSdp } from "sdp-transform";
-import SimplePeer from "simple-peer";
-import { IStream } from "../base/stream-provider";
-import { IWebrtcProvider } from "../base/webrtc-provider";
+import { ISdpHandler } from "../base/sdp-handler";
+
 /**
  * An array type for rtp data
  */
 type rtpArray = Array<{ payload: number, codec: string, rate: number }>;
 
-export class Peer extends IWebrtcProvider {
-  private instance?: SimplePeer.Instance;
-
-  public initialize(iceServers: RTCIceServer[], stream: IStream) {
-    if (this.instance) {
-      throw new Error("Already initialized");
-    }
-
-    this.instance = new SimplePeer({
-      config: {
-        iceServers,
-      },
-      initiator: false,
-      sdpTransform: this.forceH264Sdp,
-      stream: stream.toMediaStream(),
-    });
-
-    this.instance.on("error", (err) => this.emit("error", err));
-    this.instance.on("connect", () => this.emit("connect"));
-    this.instance.on("close", () => this.emit("disconnect"));
-    this.instance.on("signal", (data) => this.emit("signal", data));
-    this.instance.on("data", (data) => this.emit("data", data));
-  }
-
-  public signal(data: any) {
-    if (this.instance) {
-      this.instance.signal(data);
-    }
-  }
-
-  public destroy() {
-    if (this.instance) {
-      this.instance.destroy();
-      this.instance = undefined;
-    }
-  }
-
-  private forceH264Sdp(sdp: any) {
+/**
+ * An sdp transformer that always prioritizes the h264 video codec
+ */
+export class H264Sdp implements ISdpHandler {
+  public transformSdp(sdp: string) {
     const obj = parseSdp(sdp);
 
     // find the video media lines

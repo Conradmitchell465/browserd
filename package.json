@@ -2,7 +2,7 @@
   "name": "browserd",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/es6/node/entry.js",
+  "main": "dist/node/main.js",
   "scripts": {
     "lint": "tslint -p .",
     "build": "tsc -p .",
@@ -20,14 +20,11 @@
     ],
     "appId": "browserd",
     "directories": {
-      "output": "dist-bin"
+      "output": "bin"
     }
   },
   "jest": {
     "preset": "ts-jest",
-    "setupFiles": [
-      "./src/__tests__/setup.ts"
-    ],
     "testRegex": "/__tests__/.*spec\\.[jt]sx?$",
     "testResultsProcessor": "jest-sonar-reporter"
   },
