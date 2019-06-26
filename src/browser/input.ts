@@ -110,7 +110,7 @@ export class Input implements IInputHandler {
       type: undefined,
     };
 
-    // send keycodes as char
+    // send key codes as char
     if (keyCodes.test(keyboard.key)) {
       // we only fire chars on "pressed"
       if (keyboard.state !== "pressed") {

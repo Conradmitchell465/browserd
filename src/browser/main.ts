@@ -44,6 +44,12 @@ if (!config[K_PRELOAD_INIT_KEY]) {
         sdpHandler: new H264Sdp(),
       }),
     });
+
+    app.boot().then(() => {
+      logger.info("Browser: booted");
+    }, (err) => {
+      logger.error(`Browser: failed to boot: ${err}`);
+    });
   } else {
     logger.error("Browser: could not find capture window", captureWindowTitle);
   }

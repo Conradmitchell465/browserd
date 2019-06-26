@@ -1,5 +1,6 @@
 import { Logger } from "pino";
 import { v4 as uuid } from "uuid";
+import { IApplication } from "../base/application";
 import { IInputHandler, IInputMessage } from "../base/input-handler";
 import { ISignalProvider } from "../base/signal-provider";
 import { IStreamProvider } from "../base/stream-provider";
@@ -48,33 +49,31 @@ export interface IApplicationOpts {
 /**
  * A browser application - orchestrates the streamer experience
  */
-export class Application {
+export class Application implements IApplication {
+  private opts: IApplicationOpts;
+
   /**
    * Default ctor
    * @param opts ctor options
    */
   constructor(opts: IApplicationOpts) {
-    opts.logger.info("Browser: initializing application");
-
-    this.boot(opts).then(() => {
-      opts.logger.info("Browser: initialized");
-    }, (err: any) => {
-      opts.logger.error(`Browser: initializing failed: ${err}`);
-    });
+    this.opts = opts;
   }
 
   /**
    * Internal boot helper
    */
-  private async boot({
-    logger,
-    captureWindowTitle,
-    iceServers,
-    signalProvider,
-    streamProvider,
-    webrtcProvider,
-    inputHandler,
-  }: IApplicationOpts) {
+  public async boot() {
+    const {
+      logger,
+      captureWindowTitle,
+      iceServers,
+      signalProvider,
+      streamProvider,
+      webrtcProvider,
+      inputHandler } = this.opts;
+    logger.info("Browser: initializing application");
+
     const devices = await streamProvider.enumerateDevices((e) => e.name === captureWindowTitle);
     const selectedDevice = devices[0];
     const stream = await streamProvider.createStream(selectedDevice);
@@ -92,7 +91,7 @@ export class Application {
       const parsed = JSON.parse(data);
       // rewrap
       if (parsed.candidate) {
-          parsed.candidate = { candidate: parsed.candidate };
+        parsed.candidate = { candidate: parsed.candidate };
       }
       webrtcProvider.signal(parsed);
     });

@@ -36,4 +36,10 @@ electronApp.on("ready", () => {
     width: Number.parseInt(env.WIDTH, 10).valueOf(),
     winProvider: new Win(),
   });
+
+  app.boot().then(() => {
+    logger.info("Node: booted");
+  }, (err) => {
+    logger.error(`Node: boot failed: ${err}`);
+  });
 });

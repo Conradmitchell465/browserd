@@ -40,6 +40,10 @@ describe("H264Sdp", () => {
     ],
   };
 
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("should reorder h264 to the front", () => {
     const expectedSerialization = "ser";
     parseSdp.mockImplementationOnce(() => {

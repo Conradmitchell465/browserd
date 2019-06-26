@@ -1,5 +1,6 @@
 import * as path from "path";
 import { Logger } from "pino";
+import { IApplication } from "../base/application";
 import {
   K_BROWSER_CONFIG,
   K_BROWSER_STORAGE,
@@ -62,35 +63,32 @@ interface IApplicationOpts {
 /**
  * Node application - orchestrates electron main process
  */
-export class Application {
+export class Application implements IApplication {
+  private opts: IApplicationOpts;
+
   /**
    * Default Ctor
    * @param opts ctor opts
    */
   constructor(opts: IApplicationOpts) {
-    this.boot(opts).then(() => {
-      opts.logger.info("Node: application booted");
-    },
-      (err) => {
-        opts.logger.error(`Node: application failed: ${err}`);
-      });
+    this.opts = opts;
   }
 
   /**
    * Internal boot up helper
-   * @param opts ctor opts
    */
-  private async boot({
-    logger,
-    url,
-    captureWindowTitle,
-    signalConfig,
-    streamerConfig,
-    expHideStreamer,
-    winProvider,
-    width,
-    height,
-  }: IApplicationOpts) {
+  public async boot() {
+    const {
+      logger,
+      url,
+      captureWindowTitle,
+      signalConfig,
+      streamerConfig,
+      expHideStreamer,
+      winProvider,
+      width,
+      height } = this.opts;
+
     logger.info("Node: creating browser");
 
     await winProvider.createWindow({
