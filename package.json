@@ -24,6 +24,9 @@
     }
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
     "preset": "ts-jest",
     "testRegex": "/__tests__/.*spec\\.[jt]sx?$",
     "testResultsProcessor": "jest-sonar-reporter"
