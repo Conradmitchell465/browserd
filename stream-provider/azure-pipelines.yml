@@ -18,5 +18,5 @@ steps:
     repository: 'bengreenier/browserd'
     command: 'push'
     tags: |
-      $(Build.BuildId) 
+      $(Build.BuildId)
       latest
