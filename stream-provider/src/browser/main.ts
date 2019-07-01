@@ -1,5 +1,6 @@
 import { desktopCapturer, remote } from "electron";
 import pino from "pino";
+import { Signal } from "../../../shared/src/signal";
 import {
   K_BROWSER_CONFIG,
   K_BROWSER_STORAGE,
@@ -11,7 +12,6 @@ import { Application } from "./application";
 import { H264Sdp } from "./h264-sdp";
 import { Input } from "./input";
 import { Peer } from "./peer";
-import { Signal } from "./signal";
 import { UserMedia } from "./usermedia";
 
 // we'll export this and use it for testing

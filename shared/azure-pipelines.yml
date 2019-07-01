@@ -1,5 +1,8 @@
 trigger:
-- master
+  branches:
+    include:
+    - repo-restructure
+
 
 pool:
   vmImage: 'ubuntu-latest'
