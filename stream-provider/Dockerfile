@@ -2,8 +2,8 @@
 FROM node:12.4 as builder
 WORKDIR /usr/app/builder
 COPY package*.json ts*.json ./
-COPY ./src ./src
-COPY ../shared ./
+ADD ../stream-provider ./stream-provider
+ADD ../shared ./shared
 RUN npm install
 RUN npm run lint
 RUN npm run build
