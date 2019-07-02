@@ -5,6 +5,8 @@ trigger:
   paths:
     exclude:
     - shared/azure-pipelines.yaml
+    include: 
+    - shared/src
 
 pool:
   vmImage: 'ubuntu-latest'
