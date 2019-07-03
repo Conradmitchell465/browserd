@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "direct-start": "electron ./dist/node/main.js",
+    "direct-start": "electron ./dist/stream-provider/src/node/main.js",
     "start": "npm run build && npm run direct-start",
     "test": "jest --coverage",
     "pack": "npm run build && electron-builder --dir",
@@ -29,7 +29,7 @@
     ],
     "preset": "ts-jest",
     "testRegex": [
-      "*/__tests__/.*spec\\.[jt]sx?$"
+      "/__tests__/.*spec\\.[jt]sx?$"
     ],
     "testResultsProcessor": "jest-sonar-reporter"
   },

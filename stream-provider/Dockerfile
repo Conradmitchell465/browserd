@@ -2,8 +2,9 @@
 FROM node:12.4 as builder
 WORKDIR /usr/app/builder
 COPY ./stream-provider/src ./stream-provider/src
-COPY ./stream-provider/package*.json ./stream-provider/ts*.json ./stream-provider
+COPY ./stream-provider/package*.json ./stream-provider/ts*.json ./stream-provider/
 ADD ./shared ./shared
+WORKDIR stream-provider
 RUN npm install
 RUN npm run lint
 RUN npm run build
@@ -36,8 +37,10 @@ WORKDIR /home/electron/browserd
 
 FROM runner as release
 # move in resources
-COPY --from=builder /usr/app/builder/package*.json ./
-COPY --from=builder /usr/app/builder/dist ./dist
+COPY --from=builder /usr/app/builder/stream-provider/package*.json ./
+COPY --from=builder /usr/app/builder/stream-provider/dist ./dist
+COPY --from=builder /usr/app/builder/shared ./shared
+RUN ls
 RUN npm ci
 COPY ./stream-provider/.docker-display.conf .
 COPY ./stream-provider/.docker-x-boot.sh .

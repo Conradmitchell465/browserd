@@ -1,6 +1,6 @@
 import { Logger } from "pino";
-import { BaseSignalProvider } from "../../../shared/src/signal-provider";
 import { v4 as uuid } from "uuid";
+import { BaseSignalProvider } from "../../../shared/src/signal-provider";
 import { IApplication } from "../base/application";
 import { IInputHandler, IInputMessage } from "../base/input-handler";
 import { IStreamProvider } from "../base/stream-provider";
