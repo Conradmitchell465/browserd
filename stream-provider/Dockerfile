@@ -1,9 +1,9 @@
 # build, lint, and test
 FROM node:12.4 as builder
 WORKDIR /usr/app/builder
-COPY package*.json ts*.json ./
-ADD ../stream-provider ./stream-provider
-ADD ../shared ./shared
+COPY ./stream-provider/src ./stream-provider/src
+COPY ./stream-provider/package*.json ./stream-provider/ts*.json ./stream-provider
+ADD ./shared ./shared
 RUN npm install
 RUN npm run lint
 RUN npm run build
@@ -39,8 +39,8 @@ FROM runner as release
 COPY --from=builder /usr/app/builder/package*.json ./
 COPY --from=builder /usr/app/builder/dist ./dist
 RUN npm ci
-COPY .docker-display.conf .
-COPY .docker-x-boot.sh .
+COPY ./stream-provider/.docker-display.conf .
+COPY ./stream-provider/.docker-x-boot.sh .
 RUN dos2unix .docker-display.conf .docker-x-boot.sh
 RUN chmod +x .docker-x-boot.sh
 CMD /home/electron/browserd/.docker-x-boot.sh 'npm run direct-start -- --no-sandbox'

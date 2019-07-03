@@ -1,14 +1,13 @@
 # browserd/stream-provider
 
-Represents the component that streams content to the client 🤕☁✨
+Represents the component that recieves content from the cloud 🤕☁✨
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=repo-restructure)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-We needed a way to run chrome-based browser experiences inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
-Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
+This project will represent a simple static webpage that can connect to a [stream-provider](https://github.com/bengreenier/browserd/issues/2). It will be able to send input to and recieve content from an electron based conatainer runnning in the cloud. 
 
 ## Signaling server
 
@@ -38,7 +37,7 @@ In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are s
 
 ## Running
 
-How to get browserd up and running. ⚙
+How to get the stream-provider up and running. ⚙
 
 ### Docker
 > Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
@@ -48,10 +47,10 @@ You'll need [docker](https://docs.docker.com/install/) to build and run. Once yo
 
 ```
 # build the container (and source)
-docker build . -t browserd:local
+-- docker build . -t stream-provider:local
 
 # run
-docker run -it --env-file .env browserd:local
+-- docker run -it --env-file .env browserd:local
 ```
 
 ### Locally

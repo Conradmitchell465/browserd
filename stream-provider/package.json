@@ -1,12 +1,12 @@
 {
-  "name": "browserd",
+  "name": "broswerd",
   "version": "1.0.0",
   "description": "",
   "main": "dist/node/main.js",
   "scripts": {
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "direct-start": "electron .",
+    "direct-start": "electron ./dist/node/main.js",
     "start": "npm run build && npm run direct-start",
     "test": "jest --coverage",
     "pack": "npm run build && electron-builder --dir",
@@ -16,19 +16,21 @@
   "license": "ISC",
   "build": {
     "files": [
-      "!**/src/**/*"
+      "**/src/**/*"
     ],
-    "appId": "browserd",
+    "appId": "stream-provider",
     "directories": {
       "output": "bin"
     }
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.ts"
+      "**/src/**/*.ts"
     ],
     "preset": "ts-jest",
-    "testRegex": "/__tests__/.*spec\\.[jt]sx?$",
+    "testRegex": [
+      "*/__tests__/.*spec\\.[jt]sx?$"
+    ],
     "testResultsProcessor": "jest-sonar-reporter"
   },
   "dependencies": {
@@ -38,7 +40,8 @@
     "simple-peer": "^9.3.0",
     "strict-event-emitter-types": "^2.0.0",
     "twilio": "^3.32.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "signal-provider": "file:../shared"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
