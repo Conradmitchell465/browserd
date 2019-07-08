@@ -10,22 +10,17 @@ Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wik
 
 ### Stream-Consumer
 
-This simple web app connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
+[This simple web app](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer) connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
 [![Build Status](Branch not built yet)
 [![Quality Gate Status](Branch not built yet)
 
 ### Stream-Provider
 
-This simple web app connects to the stream-consumer through a signaling server. It recieves input from the consumer and streams its view to the consumer. 
+[This application](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status](Unknown)
-
-
-
-We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/issues/2) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
-Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
+[![Quality Gate Status](Currently unknown )
 
 ## Signaling server
 
@@ -55,36 +50,11 @@ In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are s
 
 ## Running
 
-How to get browserd up and running. ⚙
+How to get browserd up and running. Please refer the README of the package you would like to run for instructions here. ⚙
 
-### Docker
-> Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
-[Configuration](#configuration) section above.
+[Stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer)
+[Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider)
 
-You'll need [docker](https://docs.docker.com/install/) to build and run. Once you have it, you can build and run:
-
-```
-# build the container (and source)
-docker build . -t browserd:local
-
-# run
-docker run -it --env-file .env browserd:local
-```
-
-### Locally
-
-> Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
-[Configuration](#configuration) section above.
-
-You'll need [`Node LTS (v10.x.x)`](https://nodejs.org/en/) and `npm` (bundled with the node installer`) to build and run. Once you have
-those, you can install dependencies and run:
-
-```
-# install deps
-npm install
-
-# build and run
-npm start
 ```
 
 ## Contributing
