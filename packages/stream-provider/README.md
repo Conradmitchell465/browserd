@@ -1,14 +1,14 @@
-# browserd
+# browserd/stream-provider
 
-Headless electron app platform for the cloud 🤕☁✨
+Represents the component that recieves content from the cloud 🤕☁✨
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/browserd-ci?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=repo-restructure)
+[![Quality Gate Status](Not Built)]
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-We needed a way to run chrome-based browser experiences inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
-Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
+This project represents the electron app running in the cloud that streams to our [stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer). It will be able to send a UI to and recieve input from the stream-consumer web app running on a browser.
 
 ## Signaling server
 

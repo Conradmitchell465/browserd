@@ -40,7 +40,7 @@ WORKDIR /home/electron/browserd
 
 FROM runner as release
 # move in resources
-COPY --from=builder /usr/app/builder/package*.json ./
+COPY --from=builder /usr/app/builder/packages/package*.json ./
 COPY --from=builder /usr/app/builder/packages/stream-provider/dist ./dist
 RUN npm ci
 COPY ./packages/stream-provider/.docker-display.conf .
