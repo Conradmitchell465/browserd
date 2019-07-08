@@ -41,17 +41,17 @@ In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are s
 How to get browserd up and running. ⚙
 
 ### Docker
-> Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
+> Note: Your `.env` file should be in the stream-provider package directory (next to `package.json`) - for more details see the
 [Configuration](#configuration) section above.
 
 You'll need [docker](https://docs.docker.com/install/) to build and run. Once you have it, you can build and run:
 
 ```
 # build the container (and source)
-docker build . -t browserd:local
+docker build . -f packages/stream-provider -t browserd-provider:local
 
 # run
-docker run -it --env-file .env browserd:local
+docker run -it --env-file ./packages/stream-provider/.env browserd-provider:local
 ```
 
 ### Locally
@@ -63,8 +63,14 @@ You'll need [`Node LTS (v10.x.x)`](https://nodejs.org/en/) and `npm` (bundled wi
 those, you can install dependencies and run:
 
 ```
-# install deps
-npm install
+# install lerna
+npm install -g lerna
+
+# use lerna to hoist dependencies and link local dependencies
+lerna run bootstrap --hoist=packages/stream-provider
+
+# cd to the stream-provider
+cd packages/stream-provider
 
 # build and run
 npm start

@@ -37,37 +37,44 @@ In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are s
 
 ## Running
 
-How to get the stream-provider up and running. ⚙
+How to get the stream-consumer up and running. ⚙
 
 ### Docker
-> Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
+> Note: Your `.env` file should be in the stream-consumer package directory (next to `package.json`) - for more details see the
 [Configuration](#configuration) section above.
 
 You'll need [docker](https://docs.docker.com/install/) to build and run. Once you have it, you can build and run:
 
 ```
 # build the container (and source)
--- docker build . -t stream-provider:local
+docker build . -f packages/stream-consumer -t browserd-consumer:local
 
 # run
--- docker run -it --env-file .env browserd:local
+docker run -it --env-file ./packages/stream-consumer/.env browserd-consumer:local
 ```
 
 ### Locally
 
-> Note: Your `.env` file should be in the project directory (next to `package.json`) - for more details see the
+> Note: Your `.env` file should be in the stream-consumer package directory (next to `package.json`) - for more details see the
 [Configuration](#configuration) section above.
 
 You'll need [`Node LTS (v10.x.x)`](https://nodejs.org/en/) and `npm` (bundled with the node installer`) to build and run. Once you have
 those, you can install dependencies and run:
 
 ```
-# install deps
-npm install
+# install lerna
+npm install -g lerna
+
+# use lerna to hoist dependencies and link local dependencies
+lerna run bootstrap --hoist=packages/stream-consumer
+
+# cd to the stream-consumer
+cd packages/stream-consumer
 
 # build and run
 npm start
 ```
+
 
 ## Contributing
 

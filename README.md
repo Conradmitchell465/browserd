@@ -52,9 +52,9 @@ In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are s
 
 How to get browserd up and running. Please refer the README of the package you would like to run for instructions here. ⚙
 
-[Stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer)
+* [Stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer)
 
-[Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider)
+* [Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider)
 
 
 
