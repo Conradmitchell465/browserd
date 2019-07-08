@@ -1,6 +1,6 @@
 # browserd/stream-provider
 
-Represents the component that recieves content from the cloud 🤕☁✨
+Represents the component that sends content from the cloud 🤕☁✨
 
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=repo-restructure)

@@ -7,7 +7,7 @@ COPY ./package*.json ./
 COPY ./lerna.json ./
 RUN npm install lerna -g
 RUN echo y | lerna clean
-RUN lerna bootstrap --hoist=packages/stream-provider
+RUN lerna bootstrap
 WORKDIR packages/stream-provider
 RUN npm run lint
 RUN npm run build
