@@ -1,11 +1,16 @@
 {
-  "name": "signal-provider",
+  "name": "broswerd",
   "version": "1.0.0",
   "description": "",
+  "main": "dist/node/main.js",
   "scripts": {
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "test": "jest --coverage"
+    "direct-start": "electron ./dist/stream-provider/src/node/main.js",
+    "start": "npm run build && npm run direct-start",
+    "test": "jest --coverage",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +18,7 @@
     "files": [
       "**/src/**/*"
     ],
+    "appId": "stream-provider",
     "directories": {
       "output": "bin"
     }
@@ -28,14 +34,25 @@
     "testResultsProcessor": "jest-sonar-reporter"
   },
   "dependencies": {
-    "strict-event-emitter-types": "^2.0.0"
+    "dotenv": "^8.0.0",
+    "pino": "^5.12.6",
+    "sdp-transform": "^2.8.0",
+    "shared": "^0.2.0",
+    "signal-provider": "../shared",
+    "simple-peer": "^9.3.0",
+    "strict-event-emitter-types": "^2.0.0",
+    "twilio": "^3.32.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
     "@types/jest": "^24.0.13",
     "@types/pino": "^5.8.8",
     "@types/sdp-transform": "^2.4.0",
+    "@types/simple-peer": "^6.1.5",
     "@types/uuid": "^3.4.4",
+    "electron": "^5.0.2",
+    "electron-builder": "^20.43.0",
     "jest": "^24.8.0",
     "jest-fetch-mock": "^2.1.2",
     "jest-sonar-reporter": "^2.0.0",

@@ -1,11 +1,27 @@
 # browserd
 
 Headless electron app platform for the cloud 🤕☁✨
+This app is broken down into the stream-provider and the stream-consumer
+
+We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/issues/2) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
+Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
+
+## Components
+
+### Stream-Consumer
+
+This simple web app connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/browserd-ci?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+### Stream-Provider
+
+This simple web app connects to the stream-consumer through a signaling server. It recieves input from the consumer and streams its view to the consumer. 
+
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/browserd-ci?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+
 
 We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/issues/2) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
 Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.

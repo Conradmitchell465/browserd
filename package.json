@@ -1,0 +1,22 @@
+{
+  "name": "stream-services",
+  "version": "1.0.0",
+  "description": "Contains the functionality of the consumer and provider of a Webrtc stream in the cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bengreenier/browserd.git"
+  },
+  "author": "Conrad Mitchell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bengreenier/browserd/issues"
+  },
+  "homepage": "https://github.com/bengreenier/browserd#readme",
+  "devDependencies": {
+    "lerna": "^3.15.0"
+  }
+}

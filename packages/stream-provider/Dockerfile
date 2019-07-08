@@ -1,11 +1,14 @@
 # build, lint, and test
 FROM node:12.4 as builder
 WORKDIR /usr/app/builder
-COPY ./stream-provider/src ./stream-provider/src
-COPY ./stream-provider/package*.json ./stream-provider/ts*.json ./stream-provider/
-ADD ./shared ./shared
-WORKDIR stream-provider
-RUN npm install
+COPY ./packages/stream-provider ./packages/stream-provider
+COPY ./packages/shared ./packages/shared/
+COPY ./package*.json ./
+COPY ./lerna.json ./
+RUN npm install lerna -g
+RUN echo y | lerna clean
+RUN lerna bootstrap --hoist=packages/stream-provider
+WORKDIR packages/stream-provider
 RUN npm run lint
 RUN npm run build
 RUN npm run test
@@ -37,13 +40,11 @@ WORKDIR /home/electron/browserd
 
 FROM runner as release
 # move in resources
-COPY --from=builder /usr/app/builder/stream-provider/package*.json ./
-COPY --from=builder /usr/app/builder/stream-provider/dist ./dist
-COPY --from=builder /usr/app/builder/shared ./shared
-RUN ls
+COPY --from=builder /usr/app/builder/package*.json ./
+COPY --from=builder /usr/app/builder/packages/stream-provider/dist ./dist
 RUN npm ci
-COPY ./stream-provider/.docker-display.conf .
-COPY ./stream-provider/.docker-x-boot.sh .
+COPY ./packages/stream-provider/.docker-display.conf .
+COPY ./packages/stream-provider/.docker-x-boot.sh .
 RUN dos2unix .docker-display.conf .docker-x-boot.sh
 RUN chmod +x .docker-x-boot.sh
 CMD /home/electron/browserd/.docker-x-boot.sh 'npm run direct-start -- --no-sandbox'
