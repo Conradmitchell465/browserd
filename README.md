@@ -3,7 +3,7 @@
 Headless electron app platform for the cloud 🤕☁✨
 This app is broken down into the stream-provider and the stream-consumer
 
-We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/issues/2) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
+We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
 Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
 
 ## Components
@@ -12,15 +12,15 @@ Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wik
 
 This simple web app connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/browserd-ci?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+[![Build Status](Branch not built yet)
+[![Quality Gate Status](Branch not built yet)
 
 ### Stream-Provider
 
 This simple web app connects to the stream-consumer through a signaling server. It recieves input from the consumer and streams its view to the consumer. 
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/browserd-ci?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
+[![Quality Gate Status](Unknown)
 
 
 
