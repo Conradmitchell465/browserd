@@ -56,7 +56,7 @@ How to get browserd up and running. Please refer the README of the package you w
 
 [Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider)
 
-```
+
 
 ## Contributing
 
