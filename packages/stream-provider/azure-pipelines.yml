@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: docker build .... -f stream-provider/Dockerfile -t bengreenier/browserd/stream-provider:$(Build.BuildId) -t bengreenier/browserd/stream-provider:latest
+- script: docker build . -f packages/stream-provider/Dockerfile -t bengreenier/browserd/stream-provider:$(Build.BuildId) -t bengreenier/browserd/stream-provider:latest
 - task: Docker@2
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
