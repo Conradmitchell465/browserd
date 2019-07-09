@@ -13,7 +13,7 @@ How to test shared functinoality. ⚙
 
 # build the container (and source)
 ```
-docker build . -f packages/shared/DOCKERFILE -t browserd:local
+docker build . -f components/shared/DOCKERFILE -t browserd:local
 ```
 
 ### Locally
@@ -21,11 +21,11 @@ docker build . -f packages/shared/DOCKERFILE -t browserd:local
 # install lerna
 npm install lerna -g
 
-# run lerna to bootstrap packages
+# run lerna to bootstrap components
 lerna bootstrap --hoist
 
-# navigate to module
-cd packages/shared
+# navigate to component
+cd components/shared
 
 # build and test
 npm run build && npm run test
