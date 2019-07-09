@@ -2,9 +2,8 @@
 
 Represents the component that sends content from the cloud 🤕☁✨
 
-
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=repo-restructure)
-[![Quality Gate Status](Not Built)]
+[![Quality Gate Status](Unknown)]
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
@@ -47,7 +46,7 @@ Our service follows [electron security guideline](https://electronjs.org/docs/tu
 
 ## Running
 
-How to get browserd up and running. ⚙
+How to get stream-provider up and running. ⚙
 
 ### Docker
 > Note: Your `.env` file should be in the stream-provider package directory (next to `package.json`) - for more details see the

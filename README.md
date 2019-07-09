@@ -1,10 +1,11 @@
 # browserd
 
 Headless electron app platform for the cloud 🤕☁✨
-This app is broken down into the stream-provider and the stream-consumer
 
-We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
+We needed a way to run chrome-based browser experiences inside a container, and to stream that container to remote clients using webrtc.
 Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
+
+This app is broken down into two main components the [stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) which contains and provides the 'browser experiences' and the [stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) an example of a 'remote client'. These components are supported by the [shared component](https://github.com/bengreenier/browserd/tree/repo-restructure/components/shared) which houses shared functionality.
 
 ## Components
 
@@ -20,7 +21,7 @@ Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wik
 [This electron app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status]( Unknown )
+[![Quality Gate Status](Unknown)
 
 ## Signaling server
 

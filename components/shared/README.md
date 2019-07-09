@@ -21,7 +21,7 @@ docker build . -f components/shared/DOCKERFILE -t browserd:local
 # install lerna
 npm install lerna -g
 
-# run lerna to bootstrap components
+# use lerna to hoist dependencies and link local dependencies
 lerna bootstrap --hoist
 
 # navigate to component

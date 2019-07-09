@@ -2,12 +2,12 @@
 
 Represents the component that recieves content from the cloud 🤕☁✨
 
-[![Build Status](No built)
-[![Quality Gate Status](Not built)
+[![Build Status](Build CI not yet added)
+[![Quality Gate Status](Unknown)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-This project will represent a simple static webpage that can connect to a [stream-provider](https://github.com/bengreenier/browserd/issues/2). It will be able to send input to and recieve content from an electron based app runnning a container on the cloud. 
+This component will represent a simple static webpage that can connect to a [stream-provider](https://github.com/bengreenier/browserd/issues/2). It will be able to send input to and recieve content from an electron based app runnning in a container on the cloud. 
 
 ## Signaling server
 
