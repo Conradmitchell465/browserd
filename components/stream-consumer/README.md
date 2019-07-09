@@ -1,10 +1,10 @@
-# browserd/stream-provider
+# browserd/stream-consumer
 
 Represents the component that recieves content from the cloud 🤕☁✨
 
 [![Build Status](Build CI not yet added)
 
-[![Quality Gate Status](Unknown)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
