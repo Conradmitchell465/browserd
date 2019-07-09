@@ -1,7 +1,6 @@
 # build, lint, and test
 FROM node:12.4 as builder
 WORKDIR /usr/app/builder
-COPY ./components/stream-provider ./components/stream-provider
 COPY ./components/shared ./components/shared/
 COPY ./package*.json ./
 COPY ./lerna.json ./

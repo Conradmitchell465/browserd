@@ -1,5 +1,5 @@
 {
-  "name": "browsered",
+  "name": "browserd",
   "version": "1.0.0",
   "description": "Contains the functionality of the consumer and provider of a Webrtc stream in the cloud",
   "main": "index.js",

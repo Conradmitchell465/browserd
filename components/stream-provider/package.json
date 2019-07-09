@@ -1,7 +1,7 @@
 {
   "name": "stream-provider",
   "version": "1.0.0",
-  "description": "App that streams from thr cloud",
+  "description": "App that streams from the cloud",
   "main": "dist/stream-provider/src/node/main.js",
   "scripts": {
     "lint": "tslint -p .",
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/bengreenier/browserd",
   "build": {
     "files": [
-      "**/src/**/*"
+      "./src/**/*"
     ],
     "appId": "stream-provider",
     "directories": {

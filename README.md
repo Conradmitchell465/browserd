@@ -2,6 +2,8 @@
 
 Headless electron app platform for the cloud 🤕☁✨
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+
 We needed a way to run chrome-based browser experiences inside a container, and to stream that container to remote clients using webrtc.
 Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
 
@@ -13,16 +15,23 @@ This app is broken down into two main components the [stream-provider](https://g
 
 [This simple web app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/shared?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=12&branchName=master)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/shared?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=12&branchName=master)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 ### Stream-Provider
 
 [This electron app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=master)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=master)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
+## Using Lerna 
+We use [Lerna](https://github.com/lerna/lerna) to help manage our monorepo. It links our local dependencies and it reduces redundant packages and ensures consistent versioning. To run anything locally, you will need to npm install Lerna globally. With Lerna, we can automatically install all node_modules for all components, cross link them, and move shared dependencies up to the root.
+ 
+```
+npm install -g Lerna
+```
 
 ## Signaling server
 

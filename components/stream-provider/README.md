@@ -3,7 +3,6 @@
 Represents the component that sends content from the cloud 🤕☁✨
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bengreenier_browserd&metric=alert_status)](https://sonarcloud.io/dashboard?id=bengreenier_browserd)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
@@ -72,9 +71,6 @@ You'll need [`Node LTS (v10.x.x)`](https://nodejs.org/en/) and `npm` (bundled wi
 those, you can install dependencies and run:
 
 ```
-# install lerna
-npm install -g lerna
-
 # use lerna to hoist dependencies and link local dependencies
 lerna run bootstrap --hoist
 
@@ -88,7 +84,3 @@ npm start
 ## Contributing
 
 Coming soon. ✨
-
-## License
-
-MIT
