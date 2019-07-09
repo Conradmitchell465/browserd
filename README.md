@@ -3,24 +3,24 @@
 Headless electron app platform for the cloud 🤕☁✨
 This app is broken down into the stream-provider and the stream-consumer
 
-We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
+We needed a way to run chrome-based [browser experiences](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) inside a container, and to stream that container to [remote clients](https://github.com/bengreenier/browserd/issues/2) using webrtc.
 Browserd (named to indicate it's a browser [daemon](https://en.wikipedia.org/wiki/Daemon_(computing))) uses electron to do so.
 
 ## Components
 
 ### Stream-Consumer
 
-[This simple web app](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer) connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
+[This simple web app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
 [![Build Status](Branch not built yet)
 [![Quality Gate Status](Branch not built yet)
 
 ### Stream-Provider
 
-[This application](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
+[This electron app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
-[![Quality Gate Status](Currently unknown )
+[![Quality Gate Status]( Unknown )
 
 ## Signaling server
 
@@ -48,13 +48,22 @@ key and value per line. For example `KEY=value`. Below are the possible options:
 Our service supports both [coturn](https://github.com/coturn/coturn) and [Twilio's STUN/TURN service](https://www.twilio.com/docs/stun-turn).
 In the dotenv file, if `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` values are set, our service will attempt to get a turn server from Twilio. Otherwise, you can leave them empty to use a stun server or coturn turn server.
 
+## Electron security
+
+Our service follows [electron security guideline](https://electronjs.org/docs/tutorial/security) and enables the following behaviors:
+
++ Enabling [contextIsolation](https://electronjs.org/docs/tutorial/security#3-enable-context-isolation-for-remote-content), which allows scripts running in the renderer to make changes to its javascript environment without worrying about conflicting with the scripts in the electron API or the preload script.
++ Blocking [mouse middle-clicking](https://www.blackhat.com/docs/us-17/thursday/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf), which opens a new window and makes our remote input stop working.
++ Disabling popup dialog for file downloading (when clicking on a link) so that it doesn't interfere with the streamer window.
++ Displaying warning about using [insecure http protocol](https://electronjs.org/docs/tutorial/security#1-only-load-secure-content) or when the streamer window [navigates to a new origin](https://electronjs.org/docs/tutorial/security#12-disable-or-limit-navigation), which is different from the `SERVICE_URL`.
+
 ## Running
 
 How to get browserd up and running. Please refer the README of the package you would like to run for instructions here. ⚙
 
-* [Stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-consumer)
+* [Stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer)
 
-* [Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/packages/stream-provider)
+* [Stream-provider](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider)
 
 
 

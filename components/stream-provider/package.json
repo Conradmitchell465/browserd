@@ -1,5 +1,5 @@
 {
-  "name": "broswerd",
+  "name": "stream-provider",
   "version": "1.0.0",
   "description": "",
   "main": "dist/node/main.js",

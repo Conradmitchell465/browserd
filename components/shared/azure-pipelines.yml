@@ -4,13 +4,14 @@ trigger:
     - repo-restructure
   paths:
     exclude:
+    - stream-provider
     - stream-consumer
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: docker build . -f packages/stream-provider/Dockerfile -t bengreenier/browserd/stream-provider:$(Build.BuildId) -t bengreenier/browserd/stream-provider:latest
+- script: docker build . -f components/shared/Dockerfile 
 - task: Docker@2
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
