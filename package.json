@@ -6,16 +6,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bengreenier/browserd.git"
+  "author": {
+    "name": "bengreenier",
+    "email": "ben+npm@bengreenier.com"
   },
-  "author": "Conrad Mitchell",
+  "contributors": [
+    {
+      "name": "phongcao",
+      "email": "phong.caothai@live.com"
+    },
+    {
+      "name": "conradmitchell",
+      "email": "conradmitchell465@gmail.com"
+    }
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/bengreenier/browserd",
   "bugs": {
     "url": "https://github.com/bengreenier/browserd/issues"
   },
-  "homepage": "https://github.com/bengreenier/browserd#readme",
   "devDependencies": {
     "lerna": "^3.15.0"
   }

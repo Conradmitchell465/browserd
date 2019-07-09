@@ -9,6 +9,7 @@ Represents some functionality that is shared between the consumer and provider ð
 How to test shared functinoality. âš™
 
 ### Docker
+> Note: Our [`Dockerfile`](./Dockerfile) has a defined display resolution of `1920x1080` - You may change this as needed.
 
 build the container (and source)
 ```

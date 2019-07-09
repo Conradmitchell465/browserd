@@ -51,6 +51,7 @@ How to get stream-provider up and running. ⚙
 ### Docker
 > Note: Your `.env` file should be in the stream-provider package directory (next to `package.json`) - for more details see the
 [Configuration](#configuration) section above.
+> Note: Our [`Dockerfile`](./Dockerfile) has a defined display resolution of `1920x1080` - You may change this as needed.
 
 You'll need [docker](https://docs.docker.com/install/) to build and run. Once you have it, you can build and run:
 
