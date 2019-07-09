@@ -2,6 +2,7 @@ trigger:
   branches:
     include:
     - repo-restructure
+    - master
   paths:
     exclude:
     - stream-consumer
