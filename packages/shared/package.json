@@ -4,6 +4,11 @@
 	"description": "",
 	"author": "",
 	"license": "ISC",
+	"scripts": {
+		"lint": "tslint -p .",
+		"build": "tsc -p .",
+		"test": "jest --coverage"
+	  },
 	"build": {
 		"files": [
 			"**/src/**/*"
