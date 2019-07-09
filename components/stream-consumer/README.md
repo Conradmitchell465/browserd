@@ -3,6 +3,7 @@
 Represents the component that recieves content from the cloud 🤕☁✨
 
 [![Build Status](Build CI not yet added)
+
 [![Quality Gate Status](Unknown)
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)

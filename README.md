@@ -14,13 +14,15 @@ This app is broken down into two main components the [stream-provider](https://g
 [This simple web app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer) connects to the stream-provider through a signaling server. It recieves and displays a stream from the cloud, and it can send input to the cloud.
 
 [![Build Status](Branch not built yet)
+
 [![Quality Gate Status](Branch not built yet)
 
 ### Stream-Provider
 
 [This electron app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=9&branchName=master)
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)]
+
 [![Quality Gate Status](Unknown)
 
 ## Signaling server

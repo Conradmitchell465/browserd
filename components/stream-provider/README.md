@@ -2,7 +2,8 @@
 
 Represents the component that sends content from the cloud 🤕☁✨
 
-[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=repo-restructure)
+[![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=repo-restructure)]
+
 [![Quality Gate Status](Unknown)]
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
