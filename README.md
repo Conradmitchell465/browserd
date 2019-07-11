@@ -24,7 +24,7 @@ This app is broken down into two main components the [stream-provider](https://g
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=master)
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repo=https://github.com/bengreenier/browserd?ptmpl=components/stream-provider/parameters.azuredeploy.json)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repo=https://github.com/bengreenier/browserd?ptmpl=components/stream-provider/azuredeploy.json)
 
 ## Using Lerna 
 We use [Lerna](https://github.com/lerna/lerna) to help manage our monorepo. It links our local dependencies and it reduces redundant packages and ensures consistent versioning. To run anything locally, you will need to npm install Lerna globally. With Lerna, we can automatically install all node_modules for all components, cross link them, and move shared dependencies up to the root.
