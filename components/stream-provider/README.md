@@ -4,7 +4,7 @@ Represents the component that sends content from the cloud 🤕☁✨
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/stream-provider?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=11&branchName=master)
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?repository=https://github.com/bengreenier/browserd/blob/repo-restructure/components/stream-provider#/form/setup)
 
 This component represents the electron app running in the cloud that streams to our [stream-consumer](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-consumer). It will be able to send a UI to and recieve input from the stream-consumer web app running on a browser.
 
