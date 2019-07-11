@@ -17,7 +17,7 @@ This app is broken down into two main components the [stream-provider](https://g
 
 [![Build Status](https://dev.azure.com/bengreenier/browserd/_apis/build/status/shared?branchName=master)](https://dev.azure.com/bengreenier/browserd/_build/latest?definitionId=12&branchName=master)
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
 ### Stream-Provider
 
 [This electron app](https://github.com/bengreenier/browserd/tree/repo-restructure/components/stream-provider) connects to the stream-consumer through a signaling server. It recieves input from the consumer, and streams its view to the consumer. 

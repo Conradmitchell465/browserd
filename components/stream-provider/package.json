@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "direct-start": "electron ./dist/stream-provider/src/node/main.js",
+    "direct-start": "electron .",
     "start": "npm run build && npm run direct-start",
     "test": "jest --coverage",
     "pack": "npm run build && electron-builder --dir",
@@ -29,8 +29,9 @@
   "license": "MIT",
   "homepage": "https://github.com/bengreenier/browserd",
   "build": {
+    "extends": null,
     "files": [
-      "./src/**/*"
+      "**/src/**/*"
     ],
     "appId": "stream-provider",
     "directories": {
@@ -69,7 +70,6 @@
     "dotenv": "^8.0.0",
     "pino": "^5.12.6",
     "sdp-transform": "^2.8.0",
-    "shared": "^0.2.0",
     "signal-provider": "../shared",
     "simple-peer": "^9.3.0",
     "strict-event-emitter-types": "^2.0.0",
